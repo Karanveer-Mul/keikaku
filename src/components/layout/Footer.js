@@ -1,0 +1,15 @@
+import React from "react";
+import { Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
+const Footer = (props) => {
+  return (
+    <Navbar bg="dark" variant="dark" expand="lg" style={{ marginTop: "30px" }}>
+      <Navbar.Brand as={Link} to="/">
+        When Is My Show
+      </Navbar.Brand>
+    </Navbar>
+  );
+};
+
+export default Footer;
