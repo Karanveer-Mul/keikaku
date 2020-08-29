@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import showReducers from "./showReducers";
+import topReducers from "./topReducer";
+import seasonReducer from "./seasonReducer";
 
 const allReducers = combineReducers({
-  show: showReducers,
+  season: seasonReducer,
+  top: topReducers,
 });
 
 export default allReducers;

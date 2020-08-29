@@ -47,3 +47,7 @@
 .overlay-image:hover {
   cursor: pointer;
 }
+
+.carousel-text {
+  color: #000;
+}
