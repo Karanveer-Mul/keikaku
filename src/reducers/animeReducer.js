@@ -3,7 +3,7 @@ const intialState = {
   top: [],
 };
 
-const seasonReducer = (state = intialState, action) => {
+const animeReducer = (state = intialState, action) => {
   switch (action.type) {
     case "GET_SEASON": {
       return {
@@ -18,4 +18,4 @@ const seasonReducer = (state = intialState, action) => {
   }
 };
 
-export default seasonReducer;
+export default animeReducer;

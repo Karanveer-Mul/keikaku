@@ -22,11 +22,11 @@ const CardHolder = (props) => {
           <Card.Text className="mt-auto  showTitle">{title}</Card.Text>
         </Card.ImgOverlay>
       </Card>
-      <ShowSummary
+      {/*<ShowSummary
         show={isSummaryShown}
         onHide={() => setSummaryShown(false)}
         showInfo={props.show}
-      />
+      />*/}
     </>
   );
 };

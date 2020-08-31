@@ -10,7 +10,7 @@ export const season = (season) => {
 
 export const top = (top) => {
   return {
-    type: "GET_SEASON",
+    type: "GET_TOP",
     payload: top,
   };
 };

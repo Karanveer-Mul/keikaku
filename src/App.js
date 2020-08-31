@@ -20,8 +20,12 @@ function App() {
             <Route
               exact
               path="/season/current"
-              component={ShowInfo}
-              type="season"
+              component={() => <ShowInfo type="season" />}
+            />
+            <Route
+              exact
+              path="/top/anime"
+              component={() => <ShowInfo type="topAnime" />}
             />
           </Switch>
         </div>

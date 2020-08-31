@@ -1,5 +1,4 @@
 import { season } from "./index";
-import { useDispatch } from "react-redux";
 
 export const getSeason = async (dispatch) => {
   try {
