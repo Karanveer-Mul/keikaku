@@ -1,9 +1,16 @@
-import { GET_SERIES } from "./types";
+export const GET_SEASON = "GET_SEASON";
+export const GET_TOP = "GET_TOP";
 
-/*export const getSeries = async (dispatch) => {
-  const result = await axios.get("https://api.jikan.moe/v3/season/2020/summer");
-  dispatch({
-    type: "GET_SERIES",
-    payload: result.data,
-  });
-};*/
+export const season = (season) => {
+  return {
+    type: "GET_SEASON",
+    payload: season,
+  };
+};
+
+export const top = (top) => {
+  return {
+    type: "GET_SEASON",
+    payload: top,
+  };
+};

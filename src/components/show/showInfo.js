@@ -1,43 +1,22 @@
-import React, { Component } from "react";
-import SeriesInfo from "./cardHolder";
+import React from "react";
+import CardHolder from "./cardHolder";
+import { useSelector, useDispatch } from "react-redux";
+import { getSeason } from "../../actions/getSeason";
 
-class ShowInfo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentSeason: [],
-    };
+const ShowInfo = (props) => {
+  const dispatch = useDispatch();
 
-    this.getSeasonal = this.getSeasonal.bind(this);
-  }
+  getSeason(dispatch);
 
-  async getSeasonal() {
-    try {
-      const response = await fetch("https://api.jikan.moe/v3/season");
-      const responseJSON = await response.json();
-      const currentSeason = await responseJSON.anime;
-      this.setState({
-        currentSeason: currentSeason,
-      });
-    } catch (err) {
-      alert(err);
-    }
-  }
+  const data = useSelector((state) => state.season.season);
 
-  componentDidMount() {
-    this.getSeasonal();
-  }
-
-  render() {
-    const { currentSeason } = this.state;
-    return (
-      <div className="row">
-        {currentSeason.map((show) => (
-          <SeriesInfo key={show.mal_id} show={show} />
-        ))}
-      </div>
-    );
-  }
-}
+  return (
+    <div className="row">
+      {data.map((show) => (
+        <CardHolder key={show.mal_id} show={show} />
+      ))}
+    </div>
+  );
+};
 
 export default ShowInfo;

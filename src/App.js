@@ -17,7 +17,12 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/privacy-policy" component={Privacy} />
-            <Route exact path="/season/current" component={ShowInfo} />
+            <Route
+              exact
+              path="/season/current"
+              component={ShowInfo}
+              type="season"
+            />
           </Switch>
         </div>
         <Footer />

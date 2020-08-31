@@ -1,8 +1,11 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+//import season from "../../actions/seasonAction";
 
-const Header = (props) => {
+const Header = () => {
+  //const dispatch = useDispatch();
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Navbar.Brand as={Link} to="/">

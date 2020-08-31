@@ -1,28 +1,21 @@
-import { GET_SEASON } from "../actions/types";
+const intialState = {
+  season: [],
+  top: [],
+};
 
-const seasonReducer = async (state = [], action) => {
-  const promises = await (async (action) => {
-    try {
-      switch (action.type) {
-        case GET_SEASON: {
-          const getSeason = async () => {
-            const response = await fetch("https://api.jikan.moe/v3/season");
-            const responseJSON = await response.json();
-            const season = await responseJSON.anime;
-
-            this.setState({
-              season: season,
-            });
-          };
-          getSeason();
-        }
-        default:
-          return;
-      }
-    } catch (err) {
-      throw err;
+const seasonReducer = (state = intialState, action) => {
+  switch (action.type) {
+    case "GET_SEASON": {
+      return {
+        season: action.payload,
+      };
     }
-  });
+    case "GET_TOP": {
+      return { ...state, top: action.payload };
+    }
+    default:
+      return state;
+  }
 };
 
 export default seasonReducer;

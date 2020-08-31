@@ -10,7 +10,6 @@ import { createStore } from "redux";
 import allReducers from "./reducers";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./index.css";
 
 const store = createStore(
   allReducers,
