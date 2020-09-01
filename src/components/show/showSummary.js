@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Modal, Container, Row, Col, Image, Button } from "react-bootstrap";
+
+import { useSelector, useDispatch } from "react-redux";
+import { anime } from "../../actions/index";
+
 import ConfigureInfo from "../../configureInfo";
 
-const ShowSummary = (props) => {
-  const { title, producers, synopsis, genres, image_url } = props.showInfo;
-
+const ShowSummary = ({ match }) => {
+  useEffect(() => {
+    console.log(match);
+  }, []); /*
   var gapi = window.gapi;
   var CLIENT_ID = ConfigureInfo.CLIENT_ID;
   var API_KEY = ConfigureInfo.API_KEY;
@@ -41,45 +46,29 @@ const ShowSummary = (props) => {
       </Button>
     ));
   };
+*/
+  /*
+  const dispatch = useDispatch();
+  const getAnime = async (mal_id) => {
+    try {
+      const response = await fetch(`https://api.jikan.moe/v3/anime/${mal_id}`);
+      const responseJSON = await response.json();
 
-  return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Modal.Header closeButton>
-        <Modal.Title>{title}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body className="show-grid">
-        <Container>
-          <Row>
-            <Col xs={12} md={4} lg={4}>
-              <Image className="img-fluid" src={image_url} rounded />
-            </Col>
-            <Col xs={12} md={8} lg={8}>
-              <p>
-                Synopsis:<br></br> {synopsis}
-              </p>
-            </Col>
-          </Row>
-          <br></br>
-          <Row>
-            <Col xs={12} md={4} lg={4}>
-              <p>Producers:{producers.name}</p>
-            </Col>
-          </Row>
-        </Container>
-      </Modal.Body>
-      <Modal.Footer className="float-left">
-        <p>Genre:</p>
-        {getGenre()}
-        <Button variant="primary" className="float-right" onClick={handleClick}>
-          Set Event
-        </Button>
-      </Modal.Footer>
-    </Modal>
+      dispatch(anime(responseJSON));
+    } catch (err) {
+      alert(err);
+    }
+  };
+
+  useEffect(() => getAnime(dispatch, mal_id));
+
+  const showInfo = useSelector((state) => state.anime.anime);
+  
+  const { title, image_url, synopsis, genres, studios } = showInfo;
+  */ return (
+    <div>
+      <h3>anime</h3>
+    </div>
   );
 };
 

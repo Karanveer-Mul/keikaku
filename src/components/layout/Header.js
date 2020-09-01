@@ -17,7 +17,9 @@ const Header = () => {
         <Nav.Link
           as={Link}
           to="/season/current"
-          onClick={() => getSeason(dispatch)}
+          onClick={() => {
+            getSeason(dispatch);
+          }}
         >
           Season
         </Nav.Link>

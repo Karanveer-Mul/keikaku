@@ -7,6 +7,6 @@ export const getSeason = async (dispatch) => {
     const currentSeason = await responseJSON.anime;
     dispatch(season(currentSeason));
   } catch (err) {
-    alert(err);
+    console.log(err);
   }
 };

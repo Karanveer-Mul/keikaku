@@ -5,6 +5,7 @@ import Footer from "./components/layout/Footer";
 import Home from "./components/layout/home";
 import Privacy from "./components/layout/privacy";
 import ShowInfo from "./components/show/showInfo";
+import ShowSummary from "./components/show/showSummary";
 
 import "./App.css";
 
@@ -18,15 +19,14 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/privacy-policy" component={Privacy} />
             <Route
-              exact
               path="/season/current"
               component={() => <ShowInfo type="season" />}
             />
             <Route
-              exact
               path="/top/anime"
               component={() => <ShowInfo type="topAnime" />}
             />
+            <Route path="/anime/:id" component={ShowSummary} />
           </Switch>
         </div>
         <Footer />

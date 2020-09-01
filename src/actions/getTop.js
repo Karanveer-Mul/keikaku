@@ -7,6 +7,6 @@ export const getTop = async (dispatch) => {
     const topAnime = await responseJSON.top;
     dispatch(top(topAnime));
   } catch (err) {
-    alert(err);
+    console.log(err);
   }
 };
