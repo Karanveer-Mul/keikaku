@@ -1,29 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CardHolder from "./cardHolder";
 import { useSelector, useDispatch } from "react-redux";
-import { getSeason } from "../../actions/getSeason";
-import { currentComponent } from "../../actions/index";
+//import { getSeason } from "../../actions/getSeason";
+//import { currentComponent } from "../../actions/index";
 
 const ShowInfo = (props) => {
-  const dispatch = useDispatch();
-  console.log(props.type);
-  /*{
-    
-    dispatch(currentComponent(props.type));
-  
-  }*/
+  const [season, setSeason] = useState([]);
 
-  const season = useSelector((state) => state.anime.season);
-  const topAnime = useSelector((state) => state.anime.top);
+  useEffect(async function getSeason() {
+    try {
+      const response = await fetch("https://api.jikan.moe/v3/season");
+      const responseJSON = await response.json();
+      const currentSeason = await responseJSON.anime;
+      setSeason(currentSeason);
+    } catch (err) {
+      console.log(err);
+    }
+    getSeason();
+  }, []);
+
+  //const season = useSelector((state) => state.anime.season);
 
   return (
     <div className="row">
-      {props.type === "season"
-        ? season.map((show) => <CardHolder key={show.mal_id} show={show} />)
-        : ""}
-      {props.type === "topAnime"
-        ? topAnime.map((show) => <CardHolder key={show.mal_id} show={show} />)
-        : ""}
+      {season.map((show) => (
+        <CardHolder key={show.mal_id} show={show} />
+      ))}
     </div>
   );
 };

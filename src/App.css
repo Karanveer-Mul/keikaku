@@ -1,6 +1,6 @@
 .scrollable {
   overflow-y: scroll;
-  max-height: 230px;
+  max-height: 300px;
 }
 
 .scrollable::-webkit-scrollbar {

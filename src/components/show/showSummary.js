@@ -1,15 +1,65 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Modal, Container, Row, Col, Image, Button } from "react-bootstrap";
+//import { useSelector, useDispatch } from "react-redux";
+//import ConfigureInfo from "../../configureInfo";
 
-import { useSelector, useDispatch } from "react-redux";
-import { anime } from "../../actions/index";
+const ShowSummary = (props) => {
+  const { title, image_url, synopsis, genres, producers } = props.animeInfo;
 
-import ConfigureInfo from "../../configureInfo";
+  const getGenre = () => {
+    return genres.map((genre) => (
+      <Button variant="secondary" className="float-left">
+        {genre.name}
+      </Button>
+    ));
+  };
 
-const ShowSummary = ({ match }) => {
-  useEffect(() => {
-    console.log(match);
-  }, []); /*
+  const getStudios = () => {
+    return producers.map((studio) => studio.name);
+  };
+
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title>{title}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body className="show-grid">
+        <Container>
+          <Row>
+            <Col xs={12} md={4} lg={4}>
+              <Image className="img-fluid" src={image_url} rounded />
+            </Col>
+            <Col xs={12} md={8} lg={8}>
+              <p className="scrollable">{synopsis}</p>
+            </Col>
+          </Row>
+          <br></br>
+          <Row>
+            <Col xs={12} md={4} lg={4}>
+              <p>Studios:{getStudios()}</p>
+            </Col>
+          </Row>
+        </Container>
+      </Modal.Body>
+      <Modal.Footer className="float-left">
+        <p>Genre:</p>
+        {getGenre()}
+        <Button variant="primary" className="float-right">
+          Set Event
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
+
+export default ShowSummary;
+
+/*
   var gapi = window.gapi;
   var CLIENT_ID = ConfigureInfo.CLIENT_ID;
   var API_KEY = ConfigureInfo.API_KEY;
@@ -38,38 +88,4 @@ const ShowSummary = ({ match }) => {
       gapi.auth2.getAuthInstance().signIn();
     });
   };
-
-  const getGenre = () => {
-    return genres.map((genre) => (
-      <Button variant="secondary" className="float-left">
-        {genre.name}
-      </Button>
-    ));
-  };
 */
-  /*
-  const dispatch = useDispatch();
-  const getAnime = async (mal_id) => {
-    try {
-      const response = await fetch(`https://api.jikan.moe/v3/anime/${mal_id}`);
-      const responseJSON = await response.json();
-
-      dispatch(anime(responseJSON));
-    } catch (err) {
-      alert(err);
-    }
-  };
-
-  useEffect(() => getAnime(dispatch, mal_id));
-
-  const showInfo = useSelector((state) => state.anime.anime);
-  
-  const { title, image_url, synopsis, genres, studios } = showInfo;
-  */ return (
-    <div>
-      <h3>anime</h3>
-    </div>
-  );
-};
-
-export default ShowSummary;
