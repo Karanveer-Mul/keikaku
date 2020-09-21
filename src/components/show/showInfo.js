@@ -1,25 +1,20 @@
 import React, { useState, useEffect } from "react";
 import CardHolder from "./cardHolder";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 //import { getSeason } from "../../actions/getSeason";
 //import { currentComponent } from "../../actions/index";
 
 const ShowInfo = (props) => {
-  const [season, setSeason] = useState([]);
+  //const [season, setSeason] = useState([]);
 
-  useEffect(async function getSeason() {
-    try {
-      const response = await fetch("https://api.jikan.moe/v3/season");
-      const responseJSON = await response.json();
-      const currentSeason = await responseJSON.anime;
-      setSeason(currentSeason);
-    } catch (err) {
-      console.log(err);
-    }
-    getSeason();
-  }, []);
+  /*useEffect(async () => {
+    const response = await fetch("https://api.jikan.moe/v3/season");
+    const responseJSON = await response.json();
+    const currentSeason = await responseJSON.anime;
+    setSeason(currentSeason);
+  }, []);*/
 
-  //const season = useSelector((state) => state.anime.season);
+  const season = useSelector((state) => state.anime.season);
 
   return (
     <div className="row">
