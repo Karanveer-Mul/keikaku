@@ -10,6 +10,7 @@ import { createStore } from "redux";
 import allReducers from "./reducers";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "react-datepicker/dist/react-datepicker.css";
 
 const store = createStore(
   allReducers,

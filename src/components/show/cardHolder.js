@@ -3,13 +3,13 @@ import { Card, Badge } from "react-bootstrap";
 import ShowSummary from "./showSummary";
 
 const CardHolder = (props) => {
-  const { title, type, score, image_url, mal_id } = props.show;
+  const { title, type, score, image_url } = props.show;
 
   const [isSummaryShown, setSummaryShown] = useState(false);
 
   return (
     <>
-      <Card className="text-white mt-2 border-0 col-xs-8 col-sm-8 col-md-4 col-lg-2 showImage rounded-0">
+      <Card className="text-white mt-2 border-0 col-xs-4 col-sm-4 col-md-3 col-lg-2 showImage rounded-0">
         <Card.Img variant="top img-fluid showImage" src={image_url} />
         {
           <Card.ImgOverlay
@@ -29,7 +29,8 @@ const CardHolder = (props) => {
         <ShowSummary
           show={isSummaryShown}
           onHide={() => setSummaryShown(false)}
-          animeInfo={props.show}
+          info={props.show}
+          key={props.show.mal_id}
         />
       }
     </>

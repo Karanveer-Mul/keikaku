@@ -4,9 +4,15 @@ import { Link } from "react-router-dom";
 
 const Footer = (props) => {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" className="fixed-bottom" style={{marginTop:"30px"}}>
+    <Navbar
+      bg="dark"
+      variant="dark"
+      expand="lg"
+      className="fixed-bottom"
+      style={{ marginTop: "30px" }}
+    >
       <Navbar.Brand as={Link} to="/">
-        When Is My Show
+        Keikaku
       </Navbar.Brand>
     </Navbar>
   );

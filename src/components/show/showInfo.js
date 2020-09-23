@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import CardHolder from "./cardHolder";
 import { useSelector } from "react-redux";
 //import { getSeason } from "../../actions/getSeason";
