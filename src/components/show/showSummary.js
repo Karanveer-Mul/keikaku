@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   Modal,
   Container,
@@ -9,7 +9,6 @@ import {
   Toast,
 } from "react-bootstrap";
 import ConfigureInfo from "../../configureInfo";
-import DatePicker from "react-datepicker";
 import moment from "moment";
 
 const ShowSummary = (props) => {
@@ -20,9 +19,10 @@ const ShowSummary = (props) => {
     genres,
     producers,
     airing_start,
+    url,
+    source,
+    type,
   } = props.info;
-
-  const [selectedDate, setSelectedDate] = useState(new Date());
 
   var gapi = window.gapi;
   var CLIENT_ID = ConfigureInfo.CLIENT_ID;
@@ -35,12 +35,10 @@ const ShowSummary = (props) => {
   var SCOPES = "https://www.googleapis.com/auth/calendar.events";
 
   const handleClick = (date) => {
-    console.log(date, "this is airing date");
     const startDate = date.format();
     const endDate = date.add(30, "minutes").format();
     const until = date.add(12, "weeks").format("YYYYMMDDTHHmmss") + "Z";
     var tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    console.log(airing_start, date, startDate, endDate, until, tz);
 
     gapi.load("client:auth2", () => {
       console.log("loaded client");
@@ -52,9 +50,7 @@ const ShowSummary = (props) => {
         scope: SCOPES,
       });
 
-      gapi.client.load("calender", "v3", () =>
-        console.log("something happened ^_^")
-      );
+      gapi.client.load("calender", "v3");
 
       gapi.auth2
         .getAuthInstance()
@@ -69,6 +65,12 @@ const ShowSummary = (props) => {
             end: {
               dateTime: endDate,
               timeZone: tz,
+            },
+            gadget: {
+              link: url,
+              iconLink: image_url,
+              display: "icon",
+              title: title,
             },
             recurrence: [`RRULE:FREQ=WEEKLY;UNTIL=${until}`],
             reminders: {
@@ -103,43 +105,31 @@ const ShowSummary = (props) => {
       centered
     >
       <Modal.Header closeButton>
-        <Container>
+        <Container className="all-font">
           <Row>
-            {" "}
             <Modal.Title>{title}</Modal.Title>
           </Row>
           <Row className="justify-content-center">{getGenre()}</Row>
         </Container>
       </Modal.Header>
       <Modal.Body className="show-grid">
-        <Container>
+        <Container className="all-font">
           <Row>
-            <Col xs={12} md={4} lg={4}>
+            <Col xs={6} md={5} lg={4}>
               <Image className="img-fluid" src={image_url} rounded />
             </Col>
-            <Col xs={12} md={8} lg={8}>
-              <p className="scrollable">{synopsis}</p>
+            <Col xs={6} md={7} lg={8}>
+              <Row className="justify-content-center">{getStudios()}</Row>
+              <Row className="justify-content-center">{source}</Row>
+              <Row className="justify-content-center">
+                {moment(airing_start).format("MMM Do, YYYY [at] h:mma")}
+              </Row>
+              <Row>
+                <p className="scrollable">{synopsis}</p>
+              </Row>
             </Col>
           </Row>
           <br></br>
-          <Row>
-            <Col xs={6} md={6} lg={6}>
-              <p>Studios:{getStudios()}</p>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12} md={12} lg={12} className="float-right">
-              {/*<DatePicker
-                showTimeSelect
-                selected={selectedDate}
-                onChange={(date) => setSelectedDate(date)}
-                dateFormat="dd/MM/yyyy"
-                minDate={new Date()}
-                showYearDropdown
-                scrollableMonthYearDropdown
-              />*/}
-            </Col>
-          </Row>
         </Container>
       </Modal.Body>
       <Modal.Footer className="float-left">

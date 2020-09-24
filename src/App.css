@@ -1,6 +1,6 @@
 .scrollable {
   overflow-y: scroll;
-  max-height: 300px;
+  max-height: 234px;
 }
 
 .scrollable::-webkit-scrollbar {
@@ -51,4 +51,8 @@
 
 .carousel-text {
   color: #000;
+}
+
+.all-font {
+  font-size: 72%;
 }
