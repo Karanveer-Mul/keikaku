@@ -13,13 +13,16 @@ import DatePicker from "react-datepicker";
 import moment from "moment";
 
 const ShowSummary = (props) => {
-  const { title, image_url, synopsis, genres, producers } = props.info;
+  const {
+    title,
+    image_url,
+    synopsis,
+    genres,
+    producers,
+    airing_start,
+  } = props.info;
 
   const [selectedDate, setSelectedDate] = useState(new Date());
-
-  useEffect(() => {
-    console.log(selectedDate);
-  });
 
   var gapi = window.gapi;
   var CLIENT_ID = ConfigureInfo.CLIENT_ID;
@@ -32,10 +35,12 @@ const ShowSummary = (props) => {
   var SCOPES = "https://www.googleapis.com/auth/calendar.events";
 
   const handleClick = (date) => {
-    let startDate = date.format();
-    let endDate = date.add(30, "minutes").format();
-    let until = date.add(12, "weeks").format("YYYYMMDDTHHmmss") + "Z";
+    console.log(date, "this is airing date");
+    const startDate = date.format();
+    const endDate = date.add(30, "minutes").format();
+    const until = date.add(12, "weeks").format("YYYYMMDDTHHmmss") + "Z";
     var tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    console.log(airing_start, date, startDate, endDate, until, tz);
 
     gapi.load("client:auth2", () => {
       console.log("loaded client");
@@ -77,17 +82,8 @@ const ShowSummary = (props) => {
             resource: event,
           });
 
-          /*request.execute((event) => {
-            window.open(event.htmlLink);
-          });*/
           request.execute(alert("Event added"));
-        })
-        .then(() => (
-          <Toast>
-            {" "}
-            <Toast.Body>Event added successfully</Toast.Body>
-          </Toast>
-        ));
+        });
     });
   };
 
@@ -133,7 +129,7 @@ const ShowSummary = (props) => {
           </Row>
           <Row>
             <Col xs={12} md={12} lg={12} className="float-right">
-              <DatePicker
+              {/*<DatePicker
                 showTimeSelect
                 selected={selectedDate}
                 onChange={(date) => setSelectedDate(date)}
@@ -141,7 +137,7 @@ const ShowSummary = (props) => {
                 minDate={new Date()}
                 showYearDropdown
                 scrollableMonthYearDropdown
-              />
+              />*/}
             </Col>
           </Row>
         </Container>
@@ -150,7 +146,7 @@ const ShowSummary = (props) => {
         <Button
           variant="primary"
           className="float-right"
-          onClick={() => handleClick(moment({ selectedDate }))}
+          onClick={() => handleClick(moment(airing_start))}
         >
           Set Event
         </Button>
