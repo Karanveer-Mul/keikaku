@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Modal,
   Container,
@@ -15,7 +15,11 @@ import moment from "moment";
 const ShowSummary = (props) => {
   const { title, image_url, synopsis, genres, producers } = props.info;
 
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
+  useEffect(() => {
+    console.log(selectedDate);
+  });
 
   var gapi = window.gapi;
   var CLIENT_ID = ConfigureInfo.CLIENT_ID;
@@ -27,8 +31,11 @@ const ShowSummary = (props) => {
 
   var SCOPES = "https://www.googleapis.com/auth/calendar.events";
 
-  const handleClick = () => {
-    console.log("did not load client yet");
+  const handleClick = (date) => {
+    let startDate = date.format();
+    let endDate = date.add(30, "minutes").format();
+    let until = date.add(12, "weeks").format("YYYYMMDDTHHmmss") + "Z";
+    var tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
     gapi.load("client:auth2", () => {
       console.log("loaded client");
@@ -51,14 +58,14 @@ const ShowSummary = (props) => {
           var event = {
             summary: title,
             start: {
-              dateTime: "2020-10-2T22:00:00+05:30",
-              timeZone: "Asia/Kolkata",
+              dateTime: startDate,
+              timeZone: tz,
             },
             end: {
-              dateTime: "2020-10-2T22:30:00+05:30", //ISO
-              timeZone: "Asia/Kolkata",
+              dateTime: endDate,
+              timeZone: tz,
             },
-            recurrence: ["RRULE:FREQ=WEEKLY;UNTIL=20210102T200000Z"],
+            recurrence: [`RRULE:FREQ=WEEKLY;UNTIL=${until}`],
             reminders: {
               useDefault: false,
               overrides: [{ method: "popup", minutes: 30 }],
@@ -73,7 +80,7 @@ const ShowSummary = (props) => {
           /*request.execute((event) => {
             window.open(event.htmlLink);
           });*/
-          request.execute();
+          request.execute(alert("Event added"));
         })
         .then(() => (
           <Toast>
@@ -85,19 +92,11 @@ const ShowSummary = (props) => {
   };
 
   const getGenre = () => {
-    return genres.map((genre) => (
-      <Button variant="secondary" className="float-left" key={genre.mal_id}>
-        {genre.name}
-      </Button>
-    ));
+    return genres.map((genre) => genre.name + " ");
   };
 
   const getStudios = () => {
     return producers.map((studio) => studio.name);
-  };
-
-  const handleChange = (event) => {
-    console.log(event);
   };
 
   return (
@@ -108,7 +107,13 @@ const ShowSummary = (props) => {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title>{title}</Modal.Title>
+        <Container>
+          <Row>
+            {" "}
+            <Modal.Title>{title}</Modal.Title>
+          </Row>
+          <Row className="justify-content-center">{getGenre()}</Row>
+        </Container>
       </Modal.Header>
       <Modal.Body className="show-grid">
         <Container>
@@ -142,12 +147,10 @@ const ShowSummary = (props) => {
         </Container>
       </Modal.Body>
       <Modal.Footer className="float-left">
-        <p>Genre:</p>
-        {getGenre()}
         <Button
           variant="primary"
           className="float-right"
-          onClick={() => handleClick()}
+          onClick={() => handleClick(moment({ selectedDate }))}
         >
           Set Event
         </Button>
