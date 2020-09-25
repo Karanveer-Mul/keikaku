@@ -6,8 +6,8 @@
 # testing
 /coverage
 
-credentials.json
-configureInfo.js
+.credentials.json
+.configureInfo.js
 
 # production
 /build
