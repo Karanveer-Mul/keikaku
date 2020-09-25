@@ -7,7 +7,7 @@
 /coverage
 
 credentials.json
-configureInfo
+configureInfo.js
 
 # production
 /build
