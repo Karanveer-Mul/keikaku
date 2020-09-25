@@ -1,8 +1,8 @@
 const ConfigureInfo = {
   CLIENT_ID:
-    "971194473916-nofkhaj395jhc95hkc7ec1lbu2guc49t.apps.googleusercontent.com",
+    "715909202549-ofpm58s32hohf2h03bm4tds2icaitvbp.apps.googleusercontent.com",
 
-  API_KEY: "AIzaSyAV_fhZgkCi5LU-KrNrczgxDlmOA_bX29g",
+  API_KEY: "AIzaSyCNb-2Csp836XFgENzb3F8N12FQwjwvT5E",
 };
 
 export default ConfigureInfo;
