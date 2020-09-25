@@ -5,53 +5,22 @@ class Home extends Component {
   render() {
     return (
       <Container className="m-auto" fluid>
+        <br></br>
         <Row>
-          <Carousel className="m-auto">
-            <Carousel.Item>
-              <Carousel.Caption style={{ position: "static" }}>
-                <h1 className="carousel-text">Welcome to Keikaku</h1>
-                <p className="carousel-text">
-                  Watch your shows all according to your Keikaku
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <Carousel.Caption style={{ position: "static" }}>
-                <h1 className="carousel-text">How it works</h1>
-                <p className="carousel-text">
-                  Head on over to Season to look at all the airing shows of the
-                  season
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <Carousel.Caption style={{ position: "static" }}>
-                <h1 className="carousel-text">Almost done</h1>
-                <p className="carousel-text">
-                  You can login through your google account to add the show to
-                  your calender.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
+          <h2 style={{ fontFamily: "Secular One" }}>How to use?</h2>
         </Row>
         <Row>
-          <h2>How to use?</h2>
-        </Row>
-        <Row>
-          <ul>
-            <li>
-              To load/reload the list of seasonal anime, click on "Season" in
-              the navbar
-            </li>
-            <li>
-              Select any show and click set event and you will be redirected to
-              log into your google account.
-            </li>
-            <li>
-              Log into the account which you want to use for setting the event
-            </li>
-          </ul>
+          <p style={{ fontFamily: "Secular One", fontSize: "150%" }}>
+            To load the list of seasonal anime, click on <b>Season</b> in the
+            navbar.
+            <br></br>
+            Select any show and click on <b>Set Event</b> and you will be
+            redirected to log into your google account.
+            <br></br>
+            Log into the account which you want to use for setting the event.
+            <br></br>
+            The event will be added to your calendar.
+          </p>
         </Row>
       </Container>
     );

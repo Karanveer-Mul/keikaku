@@ -1,3 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  font-family: "Secular One", sans-serif;
+}
+
+.landing {
+  min-height: 100vh;
+  padding: 0rem 5rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 10vh;
+}
+
+.nav-Links {
+  display: flex;
+  list-style: none;
+  justify-content: right;
+}
+
+.nav-Links li {
+  padding-left: 80%;
+  font-size: 1.2rem;
+}
+
+.big-text {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  font-size: 3rem;
+  font-family: "Secular One", sans-serif;
+}
+
+.intro {
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider {
+  background: rgb(97, 105, 109);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-100%);
+}
+
+.intro-text {
+  color: black;
+  font-family: "Secular One", sans-serif;
+  font-size: 1rem;
+}
+
+.hide {
+  background: white;
+  overflow: hidden;
+}
+
+.hide span {
+  transform: translateY(100%);
+  display: inline-block;
+}
+
 .scrollable {
   overflow-y: scroll;
   max-height: 234px;

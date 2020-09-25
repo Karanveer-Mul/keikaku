@@ -12,7 +12,11 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.png" />
 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
+    <link rel="stylesheet" href="../src/App.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap"
+      rel="stylesheet"
+    />
     <title>Keikaku</title>
     <script
       src="https://apis.google.com/js/api.js"
@@ -20,6 +24,23 @@
     ></script>
   </head>
   <body>
+    <div class="intro">
+      <div class="intro-text">
+        <h1 class="hide">
+          <span class="text">Welcome to</span>
+        </h1>
+        <h1 class="hide">
+          <span class="text">Keikaku</span>
+        </h1>
+      </div>
+    </div>
+    <div class="slider"></div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
+      integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./animations.js"></script>
     <div id="root"></div>
   </body>
 </html>

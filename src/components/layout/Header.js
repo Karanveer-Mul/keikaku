@@ -1,22 +1,27 @@
 import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
-      <Navbar.Brand as={Link} to="/">
-        Keikaku
-      </Navbar.Brand>
-      <Nav.Link as={Link} to="/season/current">
-        Season
-      </Nav.Link>
-      {/*<Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      
-      <Navbar.Collapse id="responsive-navbar-nav">
-        
-      </Navbar.Collapse>*/}
-    </Navbar>
+    <nav class="navbar navbar-dark bg-dark">
+      <ul className="navbar-nav mr-auto">
+        <li className="nav-item active">
+          <NavLink to="/" style={{ color: "white", textDecoration: "none" }}>
+            Keikaku
+          </NavLink>
+        </li>
+      </ul>
+      <ul className="navbar-nav ml-auto">
+        <li className="nav-item active">
+          <NavLink
+            to="/season/current"
+            style={{ color: "white", textDecoration: "none" }}
+          >
+            Season
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
   );
 };
 
