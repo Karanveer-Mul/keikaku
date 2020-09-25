@@ -6,10 +6,14 @@ import Home from "./components/layout/home";
 import Privacy from "./components/layout/privacy";
 import ShowInfo from "./components/show/showInfo";
 import ShowSummary from "./components/show/showSummary";
+import { getSeason } from "./actions/getSeason";
+import { useDispatch } from "react-redux";
 
 import "./App.css";
 
 function App() {
+  const dispatch = useDispatch();
+  getSeason(dispatch);
   return (
     <Router>
       <div className="App">

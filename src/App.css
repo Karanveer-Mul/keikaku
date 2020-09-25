@@ -23,7 +23,7 @@
 }
 
 .showTitle {
-  text-align: center;
+  justify-content: right;
   font-size: 60%;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
@@ -43,6 +43,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  font-size: 100%;
 }
 
 .overlay-image:hover {

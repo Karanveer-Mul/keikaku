@@ -11,7 +11,7 @@ class Home extends Component {
               <Carousel.Caption style={{ position: "static" }}>
                 <h1 className="carousel-text">Welcome to Keikaku</h1>
                 <p className="carousel-text">
-                  Plan watching your shows according to your Keikaku
+                  Watch your shows all according to your Keikaku
                 </p>
               </Carousel.Caption>
             </Carousel.Item>
@@ -34,6 +34,24 @@ class Home extends Component {
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
+        </Row>
+        <Row>
+          <h2>How to use?</h2>
+        </Row>
+        <Row>
+          <ul>
+            <li>
+              To load/reload the list of seasonal anime, click on "Season" in
+              the navbar
+            </li>
+            <li>
+              Select any show and click set event and you will be redirected to
+              log into your google account.
+            </li>
+            <li>
+              Log into the account which you want to use for setting the event
+            </li>
+          </ul>
         </Row>
       </Container>
     );

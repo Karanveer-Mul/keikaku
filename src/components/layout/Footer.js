@@ -11,8 +11,8 @@ const Footer = (props) => {
       className="fixed-bottom"
       style={{ marginTop: "30px" }}
     >
-      <Navbar.Brand as={Link} to="/">
-        Keikaku
+      <Navbar.Brand as={Link} to="/privacy-policy">
+        Privacy policy
       </Navbar.Brand>
     </Navbar>
   );
