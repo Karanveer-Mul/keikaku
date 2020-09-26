@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Carousel, Row, Container } from "react-bootstrap";
+import { Row, Container } from "react-bootstrap";
 
 class Home extends Component {
   render() {

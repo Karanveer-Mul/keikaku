@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Modal,
-  Container,
-  Row,
-  Col,
-  Image,
-  Button,
-  Toast,
-} from "react-bootstrap";
+import { Modal, Container, Row, Col, Image, Button } from "react-bootstrap";
 import ConfigureInfo from "../../configureInfo";
 import moment from "moment";
 
@@ -21,7 +13,6 @@ const ShowSummary = (props) => {
     airing_start,
     url,
     source,
-    type,
   } = props.info;
 
   var gapi = window.gapi;
@@ -129,7 +120,6 @@ const ShowSummary = (props) => {
               </Row>
             </Col>
           </Row>
-          <br></br>
         </Container>
       </Modal.Body>
       <Modal.Footer className="float-left">

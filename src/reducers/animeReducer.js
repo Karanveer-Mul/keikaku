@@ -1,7 +1,5 @@
 const intialState = {
   season: [],
-  top: [],
-  anime: [],
 };
 
 const animeReducer = (state = intialState, action) => {
@@ -10,18 +8,6 @@ const animeReducer = (state = intialState, action) => {
       return {
         ...state,
         season: action.payload,
-      };
-    }
-    case "GET_TOP": {
-      return {
-        ...state,
-        top: action.payload,
-      };
-    }
-    case "GET_ANIME": {
-      return {
-        ...state,
-        anime: action.payload,
       };
     }
 

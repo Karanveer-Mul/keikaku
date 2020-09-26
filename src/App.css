@@ -80,7 +80,14 @@ nav {
 
 .scrollable {
   overflow-y: scroll;
-  max-height: 234px;
+  max-height: 250px;
+}
+
+@media only screen and (max-width: 768px) {
+  .scrollable {
+    overflow-y: scroll;
+    max-height: 135px;
+  }
 }
 
 .scrollable::-webkit-scrollbar {
