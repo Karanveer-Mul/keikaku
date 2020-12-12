@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
 import Home from "./components/layout/home";
 import Privacy from "./components/layout/privacy";
 import ShowInfo from "./components/show/showInfo";
@@ -16,8 +15,8 @@ function App() {
   getSeason(dispatch);
   return (
     <Router>
-      <div className="App">
-        <Header branding="MAL_RipOff" />
+      <div>
+        <Header />
         <div className="container">
           <Switch>
             <Route exact path="/" component={Home} />
@@ -33,7 +32,6 @@ function App() {
             <Route path="/anime/:id" component={ShowSummary} />
           </Switch>
         </div>
-        <Footer />
       </div>
     </Router>
   );
