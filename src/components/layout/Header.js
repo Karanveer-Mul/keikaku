@@ -11,7 +11,11 @@ const Header = () => {
           </NavLink>
         </li>
       </ul>
+
       <ul className="navbar-nav ml-auto">
+        <li className="nav-item">
+          <input type="text" placeholder="Search Anime" />
+        </li>
         <li className="nav-item active">
           <NavLink
             to="/season/current"
