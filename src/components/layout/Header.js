@@ -1,31 +1,31 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-dark bg-dark">
-      <ul className="navbar-nav mr-auto">
-        <li className="nav-item active">
-          <NavLink to="/" style={{ color: "white", textDecoration: "none" }}>
-            Keikaku
-          </NavLink>
-        </li>
-      </ul>
-
-      <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          <input type="text" placeholder="Search Anime" />
-        </li>
-        <li className="nav-item active">
-          <NavLink
-            to="/season/current"
-            style={{ color: "white", textDecoration: "none" }}
-          >
-            Season
-          </NavLink>
-        </li>
-      </ul>
-    </nav>
+    <ul className="main-nav">
+      <li style={{ float: "left" }}>
+        <Link
+          className="li-link"
+          to="/"
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          Keikaku
+        </Link>
+      </li>
+      <li style={{ float: "left" }}>
+        <Link
+          className="li-link"
+          to="/season/current"
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          Season
+        </Link>
+      </li>
+      <li style={{ float: "right", padding: "15px 15px 15px 15px" }}>
+        <input type="text" placeholder="Search for Anime" />
+      </li>
+    </ul>
   );
 };
 
