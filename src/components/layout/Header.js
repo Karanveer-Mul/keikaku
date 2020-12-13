@@ -23,6 +23,15 @@ const Header = () => {
             Season
           </Link>
         </li>
+        <li style={{ float: "left" }}>
+          <Link
+            className="li-link"
+            to="/search"
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            Search
+          </Link>
+        </li>
       </ul>
     </div>
   );

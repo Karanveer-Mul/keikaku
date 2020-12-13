@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Home extends Component {
   render() {
     return (
-      <div style={{ paddingTop: "2rem" }}>
+      <div>
         <div className="row home">
           <h2>How to use?</h2>
           <br></br>

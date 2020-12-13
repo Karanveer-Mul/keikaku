@@ -87,14 +87,14 @@ main {
   padding-top: 1rem;
 }
 
-input[type="text"] {
+input[type="search"] {
   border: none;
   border-bottom: 2px solid rgb(150, 150, 150);
   background-color: #ececec;
   padding: 10px 5px 1px 15px;
 }
 
-input[type="text"]:focus {
+input[type="search"]:focus {
   outline: none;
 }
 
@@ -124,7 +124,8 @@ input[type="text"]:focus {
 @media only screen and (max-width: 768px) {
   .scrollable {
     overflow-y: scroll;
-    max-height: 135px;
+    max-height: 150px;
+    font-size: 15px;
   }
 }
 

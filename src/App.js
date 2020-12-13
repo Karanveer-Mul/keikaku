@@ -18,19 +18,12 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <Search />
-        <div className="container">
+        <div className="container" style={{ paddingTop: "2rem" }}>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/privacy-policy" component={Privacy} />
-            <Route
-              path="/season/current"
-              component={() => <ShowInfo type="season" />}
-            />
-            <Route
-              path="/top/anime"
-              component={() => <ShowInfo type="topAnime" />}
-            />
+            <Route exact path="/season/current" component={ShowInfo} />
+            <Route exact path="/search" component={Search} />
             <Route path="/anime/:id" component={ShowSummary} />
           </Switch>
         </div>
