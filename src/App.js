@@ -15,7 +15,7 @@ function App() {
   getSeason(dispatch);
   return (
     <Router>
-      <div>
+      <div className="App">
         <Header />
         <div className="container">
           <Switch>

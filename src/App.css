@@ -1,5 +1,9 @@
-body {
-  background-color: #fcfcfc;
+.App {
+  background-color: #ececec;
+}
+
+html {
+  background-color: #ececec;
 }
 
 * {
@@ -27,7 +31,7 @@ main {
 }
 
 .intro {
-  background: white;
+  background: rgb(167, 160, 160);
   position: fixed;
   top: 0;
   left: 0;
@@ -55,7 +59,7 @@ main {
 }
 
 .hide {
-  background: white;
+  background: rgb(167, 160, 160);
   overflow: hidden;
 }
 
@@ -70,18 +74,18 @@ main {
 }
 
 .li-link {
-  display: block;
   padding: 15px 15px;
 }
 
 .li-link:hover {
-  background-color: #e6e6e6;
+  background-color: #d6d6d6;
 }
 
 input[type="text"] {
-  border: 2px solid rgb(212, 212, 212);
+  border: 1px solid rgb(212, 212, 212);
   border-radius: 15px;
-  padding-left: 7px;
+  padding-left: 10px;
+  box-shadow: none;
 }
 
 input[type="text"]:focus {
@@ -89,8 +93,21 @@ input[type="text"]:focus {
 }
 
 .home {
-  padding-top: 30px;
+  padding: 1rem;
   width: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+  .home {
+    padding: 1rem;
+    width: 100%;
+  }
+}
+
+.home ul {
+  color: rgb(125, 132, 136);
+  list-style-type: none;
+  line-height: 2rem;
 }
 
 .scrollable {
