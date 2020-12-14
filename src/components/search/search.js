@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { Card, Badge, Image, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import ShowSummary from "../show/showSummary";
 
 const Search = () => {
   const [searchResults, setSearchResults] = useState(null);
@@ -21,26 +19,26 @@ const Search = () => {
 
   const showInfo = (props) => {
     return (
-      <Card>
-        <Card.Header>{props.title}</Card.Header>
-        <Card.Body>
-          <Row>
-            <Col xs={6} md={3} lg={3}>
-              <Image className="img-fluid" src={props.image_url} rounded />
-            </Col>
-            <Col xs={6} md={9} lg={9}>
-              <p className="scrollable">{props.synopsis}</p>
-            </Col>
-          </Row>{" "}
-        </Card.Body>
-        <Card.Footer style={{ float: "left" }}>
-          <Badge variant="primary">{props.type}</Badge>
-          <Badge variant="warning">{props.score}</Badge>
-          <Link style={{ float: "right" }}>
-            <i className="material-icons">arrow_forward</i>
+      <div className="container searchResult">
+        <div className="row">
+          <Link
+            to={{
+              pathname: `/anime/${props.mal_id}`,
+            }}
+          >
+            <p>
+              {props.title}
+
+              <i
+                className="material-icons"
+                style={{ float: "right", paddingLeft: "10px" }}
+              >
+                arrow_forward
+              </i>
+            </p>
           </Link>
-        </Card.Footer>
-      </Card>
+        </div>
+      </div>
     );
   };
 

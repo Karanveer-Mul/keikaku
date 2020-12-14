@@ -87,6 +87,13 @@ main {
   padding-top: 1rem;
 }
 
+.searchResult {
+  border: none;
+  border-bottom: 2px solid rgb(150, 150, 150);
+  background-color: #ececec;
+  padding: 10px 5px 1px 15px;
+}
+
 input[type="search"] {
   border: none;
   border-bottom: 2px solid rgb(150, 150, 150);

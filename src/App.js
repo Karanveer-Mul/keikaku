@@ -5,7 +5,7 @@ import Search from "./components/search/search";
 import Home from "./components/layout/home";
 import Privacy from "./components/layout/privacy";
 import ShowInfo from "./components/show/showInfo";
-import ShowSummary from "./components/show/showSummary";
+import AnimeInfo from "./components/show/animeInfo";
 import { getSeason } from "./actions/getSeason";
 import { useDispatch } from "react-redux";
 
@@ -24,7 +24,7 @@ function App() {
             <Route exact path="/privacy-policy" component={Privacy} />
             <Route exact path="/season/current" component={ShowInfo} />
             <Route exact path="/search" component={Search} />
-            <Route path="/anime/:id" component={ShowSummary} />
+            <Route path="/anime/:id" component={AnimeInfo} />
           </Switch>
         </div>
       </div>
