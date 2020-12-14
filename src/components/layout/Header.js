@@ -32,6 +32,13 @@ const Header = () => {
             Search
           </Link>
         </li>
+        <Link
+          className="li-link"
+          to="/watch-list"
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          Watch List
+        </Link>
       </ul>
     </div>
   );
