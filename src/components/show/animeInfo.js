@@ -20,7 +20,25 @@ const AnimeInfo = ({ match }) => {
   }, [getInfo]);
 
   return (
-    <div>{animeInfo === null ? <p>getInfo</p> : <p>{animeInfo.title}</p>}</div>
+    <div>
+      {animeInfo === null ? (
+        <div className="AnimeSearch">Loading...</div>
+      ) : (
+        <div className="container">
+          <div className="row">
+            <h1>{animeInfo.title}</h1>
+          </div>
+          <div className="row">
+            <div className="col-sm-4 col-lg-4">
+              <img src={animeInfo.image_url} alt="Key Visual" />
+            </div>
+            <div className="col-sm-8 col-lg-8">
+              <div className="row">{animeInfo.synopsis}</div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 
