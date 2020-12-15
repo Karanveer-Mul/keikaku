@@ -1,46 +1,28 @@
 import React from "react";
+import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="container">
-      <ul className="main-nav">
-        <li style={{ float: "left" }}>
-          <Link
-            className="li-link"
-            to="/"
-            style={{ textDecoration: "none", color: "black" }}
-          >
-            Keikaku
-          </Link>
-        </li>
-        <li style={{ float: "left" }}>
-          <Link
-            className="li-link"
-            to="/season/current"
-            style={{ textDecoration: "none", color: "black" }}
-          >
+    <Navbar bg="light" expand="lg">
+      <Navbar.Brand as={Link} className="font-weight-bold text-muted" to="/">
+        Keikaku
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link as={Link} to="/season/current">
             Season
-          </Link>
-        </li>
-        <li style={{ float: "left" }}>
-          <Link
-            className="li-link"
-            to="/search"
-            style={{ textDecoration: "none", color: "black" }}
-          >
+          </Nav.Link>
+          <Nav.Link as={Link} to="/search">
             Search
-          </Link>
-        </li>
-        <Link
-          className="li-link"
-          to="/watch-list"
-          style={{ textDecoration: "none", color: "black" }}
-        >
-          Watch List
-        </Link>
-      </ul>
-    </div>
+          </Nav.Link>
+          <Nav.Link as={Link} to="/watch-list">
+            Watchlist
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 };
 
