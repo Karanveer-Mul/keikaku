@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ConfigureInfo from "../../configureInfo";
 import DisplayEventCard from "./displayEventCard";
 import moment from "moment";
@@ -55,19 +55,16 @@ const WatchList = () => {
     });
   };
 
+  useEffect(() => {
+    handleClick();
+  }, []);
+
   return (
     <div className="container">
       <div className="row">
         {events === null ? (
           <div className="container">
-            <div className="row justify-content-center">
-              <Button type="primary" onClick={() => handleClick()}>
-                Select Profile
-              </Button>
-            </div>
-            <div className="row justify-content-center">
-              <h1>Load List</h1>
-            </div>
+            <p>Loading...</p>
           </div>
         ) : (
           events.map((event) => <DisplayEventCard event={event} />)
