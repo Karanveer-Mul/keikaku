@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ConfigureInfo from "../../configureInfo";
+import DisplayEventCard from "./displayEventCard";
 import moment from "moment";
 import { Button } from "react-bootstrap";
 
@@ -41,19 +42,37 @@ const WatchList = () => {
             timeMin: new Date().toISOString(),
             showDeleted: false,
             singleEvents: true,
-            maxResults: 30,
+            maxResults: 40,
             orderBy: "startTime",
           });
           const items = await response.result.items;
-          setEvents(items);
+          const filteredList = await items.filter(
+            (event) =>
+              event.gadget.link.slice(0, 23) === "https://myanimelist.net"
+          );
+          setEvents(filteredList);
         });
     });
   };
+
   return (
-    <div style={{ float: "right" }}>
-      <Button type="primary" onClick={() => handleClick()}>
-        Select Profile
-      </Button>
+    <div className="container">
+      <div className="row">
+        {events === null ? (
+          <div className="container">
+            <div className="row justify-content-center">
+              <Button type="primary" onClick={() => handleClick()}>
+                Select Profile
+              </Button>
+            </div>
+            <div className="row justify-content-center">
+              <h1>Load List</h1>
+            </div>
+          </div>
+        ) : (
+          events.map((event) => <DisplayEventCard event={event} />)
+        )}
+      </div>
     </div>
   );
 };
