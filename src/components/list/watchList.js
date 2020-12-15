@@ -63,8 +63,8 @@ const WatchList = () => {
     <div className="container">
       <div className="row">
         {events === null ? (
-          <div className="container">
-            <p>Loading...</p>
+          <div className="container" style={{ textAlign: "center" }}>
+            Loading...
           </div>
         ) : (
           events.map((event) => <DisplayEventCard event={event} />)

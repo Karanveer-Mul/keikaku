@@ -104,7 +104,7 @@ const AnimeInfo = ({ match }) => {
   return (
     <div>
       {animeInfo === null ? (
-        <div className="justify-content-cneter">Loading...</div>
+        <div style={{ textAlign: "center" }}>Loading...</div>
       ) : (
         <div className="container">
           <div className="row">
