@@ -10,7 +10,7 @@ const CardHolder = (props) => {
   return (
     <>
       <Col xs={6} md={3} lg={3}>
-        <Card className="text-white mt-2 border-0 borderRadius-15 showImage rounded-0">
+        <Card className="text-white mt-2 border-0 borderRadius-15 showImage rounded-0 showCard">
           <Card.Img variant="top img-fluid" src={image_url} />
           {
             <Card.ImgOverlay

@@ -192,13 +192,33 @@ input[type="search"]:focus {
 }
 
 .eventCard {
-  border: 1px solid #a1a1a1;
-  border-radius: 15%;
+  border: 2px solid #778899;
+  border-radius: 1%;
+  box-shadow: 10px;
+  width: 225px;
+  justify-content: center;
+  display: inline-block;
 }
 
-.deleteButton {
+.showCard {
+  position: relative;
+  top: 0;
+  transition: top ease 0.5s;
+}
+
+.showCard:hover {
+  top: -10px;
+}
+
+.removeContainer {
   border: none;
-  background-color: #d30000;
+  background-color: #f56f6f;
   color: white;
-  width: 100%;
+  max-height: 1rem;
+  justify-content: center;
+}
+
+.removeContainer:hover {
+  background-color: #ee3636;
+  cursor: pointer;
 }

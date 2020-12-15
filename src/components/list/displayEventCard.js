@@ -1,27 +1,31 @@
 import React from "react";
 import deleteShow from "./deleteShow";
-import { Button } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 
 const DisplayEventCard = (props) => {
   const { title, iconLink } = props.event.gadget;
 
   return (
-    <div className="container col-sm-12 col-lg-4 eventCard">
-      <div className="row justify-content-center">
-        <b>{title}</b>
-      </div>
-      <div className="row justify-content-center">
-        <img src={iconLink} alt="Key Visual" />
-      </div>
-      <div className="row justify-content-center">
-        <button
-          className="delteButton"
-          onClick={() => deleteShow(props.event.recurringEventId)}
-        >
-          Remove Event
-        </button>
-      </div>
-    </div>
+    <>
+      <Col xs={6} md={3} lg={2}>
+        <Card className="showCard">
+          <Card.Img
+            variant="top"
+            className="text-white border-0 borderRadius-15"
+            src={iconLink}
+            alt="Key Visual"
+          />
+          <Card.Body className="removeContainer">
+            <Card.Subtitle
+              style={{ textAlign: "center", justifyContent: "center" }}
+              onClick={() => deleteShow(props.event.recurringEventId)}
+            >
+              Remove
+            </Card.Subtitle>
+          </Card.Body>
+        </Card>
+      </Col>
+    </>
   );
 };
 
