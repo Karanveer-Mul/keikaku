@@ -190,3 +190,15 @@ input[type="search"]:focus {
 .all-font {
   font-size: 72%;
 }
+
+.eventCard {
+  border: 1px solid #a1a1a1;
+  border-radius: 15%;
+}
+
+.deleteButton {
+  border: none;
+  background-color: #d30000;
+  color: white;
+  width: 100%;
+}
