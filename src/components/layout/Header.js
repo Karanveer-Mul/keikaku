@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar fixed="top" bg="light" expand="lg">
       <Navbar.Brand as={Link} className="font-weight-bold text-muted" to="/">
         Keikaku
       </Navbar.Brand>
