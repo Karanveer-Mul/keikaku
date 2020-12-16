@@ -106,14 +106,14 @@ const AnimeInfo = ({ match }) => {
       {animeInfo === null ? (
         <div style={{ textAlign: "center" }}>Loading...</div>
       ) : (
-        <div className="container">
+        <div className="container" style={{ position: "relative" }}>
           <div className="row">
             <h3>{animeInfo.title}</h3>
           </div>
 
           <div className="row">
             <div className="col-sm-4 col-lg-4">
-              <div className="row" style={{ paddingBottom: "2rem" }}>
+              <div className="row animeImage" style={{ paddingBottom: "2rem" }}>
                 <img
                   className="img-fluid"
                   src={animeInfo.image_url}
@@ -124,23 +124,23 @@ const AnimeInfo = ({ match }) => {
               <div className="row">
                 Airing:{" "}
                 {animeInfo.airing ? (
-                  <p style={{ color: "green", paddingLeft: "5px" }}>True</p>
+                  <p style={{ color: "green", paddingLeft: "10px" }}>True</p>
                 ) : (
-                  <p style={{ color: "red", paddingLeft: "5px" }}>False</p>
+                  <p style={{ color: "red", paddingLeft: "10px" }}>False</p>
                 )}
               </div>
               <div className="row">Source: {animeInfo.source}</div>
               <div className="row">Studios: {getStudios()}</div>
             </div>
-            <div className="col-sm-8 col-lg-8">
-              <div className="row" style={{ padding: "10px" }}>
+            <div
+              className="col-sm-8 col-lg-8"
+              style={{ paddingTop: "1rem", paddingBottom: "3rem" }}
+            >
+              <div className="row">
                 <b>Synopsis</b>
               </div>
               <div className="row scrollable">{animeInfo.synopsis}</div>
-              <div
-                className="row"
-                style={{ float: "right", paddingTop: "2rem" }}
-              >
+              <div className="row setEventButton">
                 {animeInfo.airing ? (
                   <Button variant="primary" onClick={() => SetEvent(animeInfo)}>
                     Set Event

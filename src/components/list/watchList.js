@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import ConfigureInfo from "../../configureInfo";
 import DisplayEventCard from "./displayEventCard";
 import moment from "moment";
-import { Button } from "react-bootstrap";
 
 const WatchList = () => {
   const [events, setEvents] = useState(null);

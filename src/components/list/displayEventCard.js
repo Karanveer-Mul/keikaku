@@ -3,7 +3,7 @@ import deleteShow from "./deleteShow";
 import { Card, Col } from "react-bootstrap";
 
 const DisplayEventCard = (props) => {
-  const { title, iconLink } = props.event.gadget;
+  const { iconLink } = props.event.gadget;
 
   return (
     <>

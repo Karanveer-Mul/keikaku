@@ -1,5 +1,6 @@
 .App {
   background-color: #ececec;
+  padding-bottom: 2rem;
 }
 
 html {
@@ -221,4 +222,17 @@ input[type="search"]:focus {
 .removeContainer:hover {
   background-color: #ee3636;
   cursor: pointer;
+}
+
+.setEventButton {
+  padding-right: 20px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .animeImage {
+    justify-content: center;
+  }
 }
