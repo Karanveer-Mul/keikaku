@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import CardHolder from "./cardHolder";
 import { getSeason } from "../../actions/getSeason";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-const ShowInfo = (props) => {
+const ShowInfo = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {

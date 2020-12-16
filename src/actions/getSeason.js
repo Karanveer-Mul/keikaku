@@ -4,8 +4,8 @@ export const getSeason = async (dispatch) => {
   try {
     const response = await fetch("https://api.jikan.moe/v3/season");
     const responseJSON = await response.json();
-    const currentSeason = await responseJSON.anime;
-    dispatch(season(currentSeason));
+    const Season = await responseJSON.anime;
+    dispatch(season(Season));
   } catch (err) {
     console.log(err);
   }
