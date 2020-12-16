@@ -22,7 +22,12 @@ const CardHolder = (props) => {
                 <Badge variant="warning">{score}</Badge>
               </div>
 
-              <Card.Text className="mt-auto  showTitle">{title}</Card.Text>
+              <Card.Text
+                className="mt-auto showTitle"
+                style={{ textAlign: "center" }}
+              >
+                {title}
+              </Card.Text>
             </Card.ImgOverlay>
           }
         </Card>
