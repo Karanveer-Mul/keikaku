@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CardHolder from "./cardHolder";
+import { getSeason } from "../../actions/getSeason";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
 const ShowInfo = (props) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    getSeason(dispatch);
+  }, []);
+
   const season = useSelector((state) => state.anime.season);
 
   return (

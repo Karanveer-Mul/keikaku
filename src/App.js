@@ -6,14 +6,10 @@ import Home from "./components/layout/home";
 import ShowInfo from "./components/show/showInfo";
 import AnimeInfo from "./components/show/animeInfo";
 import WatchList from "./components/list/watchList";
-import { getSeason } from "./actions/getSeason";
-import { useDispatch } from "react-redux";
 
 import "./App.css";
 
 function App() {
-  const dispatch = useDispatch();
-  getSeason(dispatch);
   return (
     <Router>
       <div className="App">
