@@ -88,11 +88,19 @@ input[type="search"]:focus {
 }
 
 .showTitle {
-  max-height: 50px;
+  max-height: 75px;
   min-height: 0px;
-  font-size: 80%;
+  font-size: 70%;
+  background-color: #00000093;
+  width: 100%;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
+}
+
+@media only screen and (max-width: 768px) {
+  .showTitle {
+    font-size: 65%;
+  }
 }
 
 .showImage:hover {
@@ -109,7 +117,6 @@ input[type="search"]:focus {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  font-size: 100%;
 }
 
 .overlay-image:hover {
