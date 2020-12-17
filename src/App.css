@@ -50,7 +50,7 @@ input[type="search"]:focus {
 }
 
 .home p {
-  font-size: 3vw;
+  font-size: 30px;
   font-weight: bolder;
 }
 
@@ -58,7 +58,7 @@ input[type="search"]:focus {
   color: rgb(125, 132, 136);
   list-style-type: none;
   line-height: 3rem;
-  font-size: 2vw;
+  font-size: 22px;
 }
 
 .home ul li {
