@@ -1,5 +1,13 @@
-import React from "react";
-import { Modal, Container, Row, Col, Image, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import {
+  Modal,
+  Container,
+  Row,
+  Col,
+  Image,
+  Button,
+  Form,
+} from "react-bootstrap";
 import ConfigureInfo from "../../configureInfo";
 import moment from "moment";
 
@@ -15,6 +23,8 @@ const ShowSummary = (props) => {
     source,
   } = props.info;
 
+  const [episodes, setEpisodes] = useState(12);
+
   var gapi = window.gapi;
   var CLIENT_ID = ConfigureInfo.CLIENT_ID;
   var API_KEY = ConfigureInfo.API_KEY;
@@ -28,7 +38,8 @@ const ShowSummary = (props) => {
   const handleClick = (date) => {
     const startDate = date.format();
     const endDate = date.add(30, "minutes").format();
-    const until = date.add(12, "weeks").format("YYYYMMDDTHHmmss") + "Z";
+    const until =
+      date.add(episodes - 1, "weeks").format("YYYYMMDDTHHmmss") + "Z";
     var tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
     gapi.load("client:auth2", () => {
@@ -122,14 +133,63 @@ const ShowSummary = (props) => {
           </Row>
         </Container>
       </Modal.Body>
-      <Modal.Footer className="float-left">
-        <Button
-          variant="primary"
-          className="float-right"
-          onClick={() => handleClick(moment(airing_start))}
-        >
-          Set Event
-        </Button>
+      <Modal.Footer>
+        <Form>
+          <Form.Row>
+            <Col>
+              <Form.Label
+                style={{
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textAlign: "center",
+                  paddingTop: "10px",
+                }}
+              >
+                Episodes
+              </Form.Label>
+            </Col>
+            <Col>
+              <Form.Control
+                as="select"
+                onChange={(number) => setEpisodes(number.target.value)}
+              >
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+              </Form.Control>
+            </Col>
+
+            <Button
+              variant="primary"
+              style={{ float: "right" }}
+              onClick={() => handleClick(moment(airing_start))}
+            >
+              Set Event
+            </Button>
+          </Form.Row>
+        </Form>
       </Modal.Footer>
     </Modal>
   );

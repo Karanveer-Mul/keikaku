@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Form, Col } from "react-bootstrap";
 import ConfigureInfo from "../../configureInfo";
 import moment from "moment";
 
 const AnimeInfo = ({ match }) => {
   const [animeInfo, setAnimeInfo] = useState(null);
+  const [episodes, setEpisodes] = useState(12);
 
   const getInfo = useCallback(async () => {
     try {
@@ -23,7 +24,7 @@ const AnimeInfo = ({ match }) => {
   }, [getInfo]);
 
   const SetEvent = (props) => {
-    const { title, image_url, aired, url } = props;
+    const { title, image_url, aired, url, broadcast } = props;
 
     var gapi = window.gapi;
     var CLIENT_ID = ConfigureInfo.CLIENT_ID;
@@ -36,9 +37,24 @@ const AnimeInfo = ({ match }) => {
     var SCOPES = "https://www.googleapis.com/auth/calendar.events";
 
     const handleClick = (date) => {
+      date.add(
+        parseInt(
+          broadcast.slice(broadcast.length - 8, broadcast.length - 6),
+          10
+        ),
+        "minutes"
+      );
+      date.add(
+        parseInt(
+          broadcast.slice(broadcast.length - 11, broadcast.length - 9),
+          10
+        ) - 9,
+        "hours"
+      );
       const startDate = date.format();
       const endDate = date.add(30, "minutes").format();
-      const until = date.add(12, "weeks").format("YYYYMMDDTHHmmss") + "Z";
+      const until =
+        date.add(episodes - 1, "weeks").format("YYYYMMDDTHHmmss") + "Z";
       var tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
       gapi.load("client:auth2", () => {
@@ -141,15 +157,67 @@ const AnimeInfo = ({ match }) => {
               </div>
               <div className="row scrollable">{animeInfo.synopsis}</div>
               <div className="row setEventButton">
-                {animeInfo.airing ? (
-                  <Button variant="primary" onClick={() => SetEvent(animeInfo)}>
-                    Set Event
-                  </Button>
-                ) : (
-                  <Button variant="secondary" disabled>
-                    Set Event
-                  </Button>
-                )}
+                <Form>
+                  <Form.Row>
+                    <Col>
+                      <Form.Label
+                        style={{
+                          whiteSpace: "nowrap",
+                          overflow: "hidden",
+                          textAlign: "center",
+                          paddingTop: "10px",
+                        }}
+                      >
+                        Episodes
+                      </Form.Label>
+                    </Col>
+                    <Col>
+                      <Form.Control
+                        as="select"
+                        onChange={(number) => setEpisodes(number.target.value)}
+                      >
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>24</option>
+                        <option>25</option>
+                      </Form.Control>
+                    </Col>
+
+                    {animeInfo.airing ? (
+                      <Button
+                        variant="primary"
+                        onClick={() => SetEvent(animeInfo)}
+                      >
+                        Set Event
+                      </Button>
+                    ) : (
+                      <Button variant="secondary" disabled>
+                        Set Event
+                      </Button>
+                    )}
+                  </Form.Row>
+                </Form>
               </div>
             </div>
           </div>
