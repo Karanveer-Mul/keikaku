@@ -60,7 +60,12 @@ const WatchList = () => {
 
   return (
     <div className="container">
-      <div className="row">
+      <div className="row home" style={{ width: "100%" }}>
+        <div className="container home" style={{ textAlign: "center" }}>
+          <p>Shows this Week</p>
+        </div>
+      </div>
+      <div className="row" style={{ width: "100%" }}>
         {events === null ? (
           <div className="container" style={{ textAlign: "center" }}>
             Loading...
