@@ -23,7 +23,7 @@ const ShowSummary = (props) => {
     source,
   } = props.info;
 
-  const [episodes, setEpisodes] = useState(12);
+  const [episodes, setEpisodes] = useState(1);
 
   var gapi = window.gapi;
   var CLIENT_ID = ConfigureInfo.CLIENT_ID;

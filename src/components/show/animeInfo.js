@@ -5,7 +5,7 @@ import moment from "moment";
 
 const AnimeInfo = ({ match }) => {
   const [animeInfo, setAnimeInfo] = useState(null);
-  const [episodes, setEpisodes] = useState(12);
+  const [episodes, setEpisodes] = useState(1);
 
   const getInfo = useCallback(async () => {
     try {
