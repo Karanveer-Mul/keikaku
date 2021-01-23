@@ -62,12 +62,14 @@ const WatchList = () => {
     <div className="container">
       <div className="row home" style={{ width: "100%" }}>
         <div className="container home" style={{ textAlign: "center" }}>
-          <p>Shows this Week</p>
+          <p>Watchlist</p>
         </div>
       </div>
       <div className="row" style={{ width: "100%" }}>
         {events === null ? (
-          <div className="container" style={{ textAlign: "center" }}></div>
+          <div className="container" style={{ textAlign: "center" }}>
+            So empty :(
+          </div>
         ) : (
           events.map((event) => <DisplayEventCard event={event} />)
         )}

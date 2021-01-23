@@ -145,12 +145,13 @@ Navbar {
 
 .showCard {
   position: relative;
+  padding-bottom: 10px;
   top: 0;
   transition: top ease 0.5s;
 }
 
 .showCard:hover {
-  top: -10px;
+  top: -5px;
 }
 
 .removeContainer {
