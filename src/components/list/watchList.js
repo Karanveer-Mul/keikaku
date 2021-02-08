@@ -65,7 +65,7 @@ const WatchList = () => {
           <p>Watchlist</p>
         </div>
       </div>
-      <div className="row" style={{ width: "100%" }}>
+      <div className="row watchList" style={{ width: "100%" }}>
         {events === null ? (
           <div className="container" style={{ textAlign: "center" }}>
             So empty :(

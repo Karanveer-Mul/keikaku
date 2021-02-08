@@ -15,15 +15,24 @@ html {
 
 .searchAnime {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding-top: 1rem;
 }
 
 .searchResult {
+  width: 50%;
   border: none;
   border-bottom: 2px solid rgb(150, 150, 150);
   background-color: #ececec;
   padding: 10px 5px 1px 15px;
+}
+
+@media only screen and (max-width: 475px) {
+  .searchResult {
+    width: 100%;
+  }
 }
 
 input[type="search"] {
@@ -156,7 +165,7 @@ Navbar {
 
 .removeContainer {
   border: none;
-  background-color: #f56f6f;
+  background-color: #665656;
   color: white;
   max-height: 1rem;
   justify-content: center;
@@ -178,4 +187,60 @@ Navbar {
   .animeImage {
     justify-content: center;
   }
+}
+
+.watchCard {
+  position: relative;
+  display: inline;
+  position: relative;
+  text-align: center;
+  margin: 10px;
+  font-size: 16px;
+  top: 0;
+  transition: top ease 0.5s;
+}
+
+.watchCard:hover {
+  top: -5px;
+}
+
+.showImg {
+  aspect-ratio: calc(attr(width) / attr(height));
+}
+
+.showRemove {
+  color: #7a7a7a;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  cursor: pointer;
+  width: 225px;
+  background: #ffffff;
+  padding: 7px;
+}
+
+.showRemove:hover {
+  color: white;
+  background: #ee3636;
+}
+
+.showDay {
+  color: white;
+  padding: 7px;
+  border-radius: 10px;
+  background: #007abd;
+  position: absolute;
+  text-align: center;
+  top: 10px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+.watchList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }

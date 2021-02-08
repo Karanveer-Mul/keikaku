@@ -6,10 +6,29 @@ import moment from "moment";
 const DisplayEventCard = (props) => {
   let dateTime = props.event.start.dateTime;
   dateTime = moment(dateTime).format("dddd");
-  const { iconLink } = props.event.gadget;
+
+  const { iconLink, title } = props.event.gadget;
 
   return (
     <>
+      <div className="watchCard">
+        <div className="showDay">{dateTime}</div>
+        <img
+          class="showImg"
+          src={iconLink}
+          alt={title}
+          width="225px"
+          high="318px"
+        />
+        <div
+          className="showRemove"
+          onClick={() => deleteShow(props.event.recurringEventId)}
+        >
+          Remove
+        </div>
+      </div>
+    </>
+    /*<>
       <Col xs={6} md={3} lg={2}>
         <Card className="showCard">
           <Card.Img
@@ -35,7 +54,7 @@ const DisplayEventCard = (props) => {
           </Card.Body>
         </Card>
       </Col>
-    </>
+        </>*/
   );
 };
 

@@ -19,25 +19,23 @@ const Search = () => {
 
   const showInfo = (props) => {
     return (
-      <div className="container searchResult">
-        <div className="row">
-          <Link
-            to={{
-              pathname: `/anime/${props.mal_id}`,
-            }}
-          >
-            <p>
-              {props.title}
+      <div className="searchResult">
+        <Link
+          to={{
+            pathname: `/anime/${props.mal_id}`,
+          }}
+        >
+          <p>
+            {props.title}
 
-              <i
-                className="material-icons"
-                style={{ float: "right", paddingLeft: "10px" }}
-              >
-                arrow_forward
-              </i>
-            </p>
-          </Link>
-        </div>
+            <i
+              className="material-icons"
+              style={{ float: "right", paddingLeft: "10px" }}
+            >
+              arrow_forward
+            </i>
+          </p>
+        </Link>
       </div>
     );
   };
@@ -67,7 +65,9 @@ const Search = () => {
           <h4>Enter a valid title!</h4>
         </div>
       ) : (
-        searchResults.map((show) => showInfo(show))
+        <div className="container searchAnime">
+          {searchResults.map((show) => showInfo(show))}
+        </div>
       )}
     </div>
   );
