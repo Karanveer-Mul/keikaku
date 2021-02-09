@@ -292,4 +292,5 @@ input[type="search"]:focus {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  max-width: 1600px;
 }
