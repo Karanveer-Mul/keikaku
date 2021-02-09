@@ -66,7 +66,7 @@ const WatchList = () => {
         </p>
       </div>
 
-      <div className="watchList" style={{ width: "100%" }}>
+      <div className="row watchList" style={{ width: "100%" }}>
         {events.length < 1 ? (
           <div className="container" style={{ textAlign: "center" }}>
             So empty :(

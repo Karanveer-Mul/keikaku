@@ -17,7 +17,7 @@ const DisplayEventCard = (props) => {
           src={iconLink}
           alt={title}
           width="225"
-          high="318"
+          height="318"
           loading="lazy"
         />
         <div
