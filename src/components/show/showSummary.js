@@ -86,7 +86,10 @@ const ShowSummary = (props) => {
             resource: event,
           });
 
-          request.execute(alert("Event added"));
+          request.execute();
+          setTimeout(() => {
+            window.alert(`${title} added`);
+          }, 2);
         });
     });
   };

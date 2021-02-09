@@ -1,6 +1,8 @@
 import ConfigureInfo from "../../configureInfo";
+import { useAlert } from "react-alert";
+import { useState } from "react";
 
-const deleteShow = (eventId) => {
+const DeleteShow = (eventId, title) => {
   var gapi = window.gapi;
   var CLIENT_ID = ConfigureInfo.CLIENT_ID;
   var API_KEY = ConfigureInfo.API_KEY;
@@ -27,14 +29,20 @@ const deleteShow = (eventId) => {
       .getAuthInstance()
       .signIn()
       .then(() => {
-        var request = gapi.client.calendar.events.delete({
-          calendarId: "primary",
-          eventId: eventId,
-        });
-
-        request.execute(alert("Event removed"));
+        let remove = window.confirm(`Do you want to remove ${title}?`);
+        if (remove) {
+          gapi.client.calendar.events
+            .delete({
+              calendarId: "primary",
+              eventId: eventId,
+            })
+            .execute();
+          setTimeout(() => {
+            window.alert(`${title} removed`);
+          }, 2);
+        }
       });
   });
 };
 
-export default deleteShow;
+export default DeleteShow;

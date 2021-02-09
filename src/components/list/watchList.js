@@ -4,7 +4,7 @@ import DisplayEventCard from "./displayEventCard";
 import moment from "moment";
 
 const WatchList = () => {
-  const [events, setEvents] = useState(null);
+  const [events, setEvents] = useState([]);
 
   var gapi = window.gapi;
   var CLIENT_ID = ConfigureInfo.CLIENT_ID;
@@ -66,7 +66,7 @@ const WatchList = () => {
         </div>
       </div>
       <div className="row watchList" style={{ width: "100%" }}>
-        {events === null ? (
+        {events.length < 1 ? (
           <div className="container" style={{ textAlign: "center" }}>
             So empty :(
           </div>
