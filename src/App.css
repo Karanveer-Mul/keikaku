@@ -113,35 +113,37 @@ Navbar {
 }
 
 .showTitle {
-  max-height: 75px;
+  color: white;
+  position: absolute;
+  max-height: 65px;
+  overflow: hidden;
   min-height: 0px;
-  font-size: 70%;
+  font-size: 0.97em;
+  bottom: -20px;
+  text-align: center;
   background-color: #00000093;
-  width: 100%;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
+  width: 100%;
 }
 
 @media only screen and (max-width: 768px) {
   .showTitle {
-    font-size: 65%;
+    font-size: 0.97em;
+    max-height: 50px;
   }
 }
 
-.showImage:hover {
-  opacity: 0.75;
-}
-
 .badges {
-  display: flex;
-  flex-direction: column;
-}
-
-.overlay-image {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  position: absolute;
   justify-content: center;
+  align-items: center;
+  right: 0;
+  left: 10px;
+  top: 10px;
+  display: flex;
+  width: 25%;
+  flex-direction: column;
 }
 
 .overlay-image:hover {
@@ -150,17 +152,6 @@ Navbar {
 
 .all-font {
   font-size: 72%;
-}
-
-.showCard {
-  position: relative;
-  padding-bottom: 10px;
-  top: 0;
-  transition: top ease 0.5s;
-}
-
-.showCard:hover {
-  top: -5px;
 }
 
 .removeContainer {
@@ -202,6 +193,13 @@ Navbar {
 
 .watchCard:hover {
   top: -5px;
+  opacity: 75%;
+}
+
+@media only screen and (max-width: 475px) {
+  .watchCard {
+    width: 112px;
+  }
 }
 
 .showImg {

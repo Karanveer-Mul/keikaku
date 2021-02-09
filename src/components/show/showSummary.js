@@ -148,7 +148,7 @@ const ShowSummary = (props) => {
                   paddingTop: "10px",
                 }}
               >
-                Episodes
+                Number of Episodes
               </Form.Label>
             </Col>
             <Col>

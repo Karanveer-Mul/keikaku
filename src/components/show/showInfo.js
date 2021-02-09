@@ -13,7 +13,7 @@ const ShowInfo = () => {
   const season = useSelector((state) => state.anime.season);
 
   return (
-    <div className="row">
+    <div className="row watchList">
       {season.map((show) => (
         <CardHolder key={show.mal_id} show={show} />
       ))}

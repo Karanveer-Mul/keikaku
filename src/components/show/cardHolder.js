@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Badge, Col } from "react-bootstrap";
+import { Badge } from "react-bootstrap";
 import ShowSummary from "./showSummary";
 
 const CardHolder = (props) => {
@@ -9,29 +9,24 @@ const CardHolder = (props) => {
 
   return (
     <>
-      <Col xs={6} md={3} lg={3}>
-        <Card className="text-white mt-2 border-0 borderRadius-15 showImage rounded-0 showCard">
-          <Card.Img variant="top img-fluid" src={image_url} />
-          {
-            <Card.ImgOverlay
-              className="overlay-image"
-              onClick={() => setSummaryShown(true)}
-            >
-              <div className="badges">
-                <Badge variant="primary">{type}</Badge>
-                <Badge variant="warning">{score}</Badge>
-              </div>
+      <div className="watchCard" style={{ cursor: "pointer" }}>
+        <img
+          className="img-fluid showImg"
+          src={image_url}
+          width="225"
+          height="318"
+          onClick={() => setSummaryShown(true)}
+          loading="lazy"
+        />
 
-              <Card.Text
-                className="mt-auto showTitle"
-                style={{ textAlign: "center" }}
-              >
-                {title}
-              </Card.Text>
-            </Card.ImgOverlay>
-          }
-        </Card>
-      </Col>
+        <div className="badges">
+          <Badge variant="primary">{type}</Badge>
+          <Badge variant="warning">{score}</Badge>
+        </div>
+
+        <p className="showTitle">{title}</p>
+      </div>
+
       {
         <ShowSummary
           show={isSummaryShown}
