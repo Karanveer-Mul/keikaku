@@ -60,12 +60,13 @@ const WatchList = () => {
 
   return (
     <div className="container">
-      <div className="row home" style={{ width: "100%" }}>
-        <div className="container home" style={{ textAlign: "center" }}>
-          <p>Watchlist</p>
-        </div>
+      <div className="row home">
+        <p className="heading" style={{ textAlign: "center" }}>
+          Watchlist
+        </p>
       </div>
-      <div className="row watchList" style={{ width: "100%" }}>
+
+      <div className="watchList" style={{ width: "100%" }}>
         {events.length < 1 ? (
           <div className="container" style={{ textAlign: "center" }}>
             So empty :(

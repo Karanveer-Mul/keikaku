@@ -1,6 +1,4 @@
 import ConfigureInfo from "../../configureInfo";
-import { useAlert } from "react-alert";
-import { useState } from "react";
 
 const DeleteShow = (eventId, title) => {
   var gapi = window.gapi;
@@ -38,7 +36,7 @@ const DeleteShow = (eventId, title) => {
             })
             .execute();
           setTimeout(() => {
-            window.alert(`${title} removed`);
+            window.alert(`${title} was removed`);
           }, 2);
         }
       });

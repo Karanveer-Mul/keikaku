@@ -88,7 +88,7 @@ const ShowSummary = (props) => {
 
           request.execute();
           setTimeout(() => {
-            window.alert(`${title} added`);
+            window.alert(`${title} was added`);
           }, 2);
         });
     });

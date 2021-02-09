@@ -13,11 +13,12 @@ const DisplayEventCard = (props) => {
       <div className="watchCard">
         <div className="showDay">{dateTime}</div>
         <img
-          class="showImg"
+          class="img-fluid showImg"
           src={iconLink}
           alt={title}
-          width="225px"
-          high="318px"
+          width="225"
+          high="318"
+          loading="lazy"
         />
         <div
           className="showRemove"

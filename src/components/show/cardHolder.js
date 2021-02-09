@@ -17,6 +17,7 @@ const CardHolder = (props) => {
           height="318"
           onClick={() => setSummaryShown(true)}
           loading="lazy"
+          alt={title}
         />
 
         <div className="badges">

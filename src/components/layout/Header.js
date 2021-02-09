@@ -19,7 +19,7 @@ const Header = () => {
           <Nav.Link as={Link} to="/search">
             Search
           </Nav.Link>
-          <Nav.Link as={Link} to="/watch-list">
+          <Nav.Link as={Link} to="/watchlist">
             Watchlist
           </Nav.Link>
         </Nav>

@@ -14,12 +14,12 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <div className="container" style={{ paddingTop: "4rem" }}>
+        <div style={{ marginTop: "70px" }}>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/season/current" component={ShowInfo} />
             <Route exact path="/search" component={Search} />
-            <Route exact path="/watch-list" component={WatchList} />
+            <Route exact path="/watchlist" component={WatchList} />
             <Route path="/anime/:id" component={AnimeInfo} />
           </Switch>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Form, Col } from "react-bootstrap";
 import ConfigureInfo from "../../configureInfo";
 import moment from "moment";
@@ -7,21 +7,20 @@ const AnimeInfo = ({ match }) => {
   const [animeInfo, setAnimeInfo] = useState(null);
   const [episodes, setEpisodes] = useState(1);
 
-  const getInfo = useCallback(async () => {
-    try {
-      let response = await fetch(
-        `https://api.jikan.moe/v3/anime/${match.params.id}`
-      );
-      response = await response.json();
-      setAnimeInfo(response);
-    } catch (err) {
-      console.log(err);
-    }
-  }, []);
-
   useEffect(() => {
+    const getInfo = async () => {
+      try {
+        let response = await fetch(
+          `https://api.jikan.moe/v3/anime/${match.params.id}`
+        );
+        response = await response.json();
+        setAnimeInfo(response);
+      } catch (err) {
+        console.log(err);
+      }
+    };
     getInfo();
-  }, [getInfo]);
+  });
 
   const SetEvent = (props) => {
     const { title, image_url, aired, url, broadcast } = props;
@@ -101,7 +100,10 @@ const AnimeInfo = ({ match }) => {
               resource: event,
             });
 
-            request.execute(alert("Event added"));
+            request.execute();
+            setTimeout(() => {
+              window.alert(`${title} was added`);
+            }, 2);
           });
       });
     };
@@ -134,6 +136,8 @@ const AnimeInfo = ({ match }) => {
                   className="img-fluid"
                   src={animeInfo.image_url}
                   alt="Key Visual"
+                  width="225"
+                  height="318"
                 />
               </div>
               <div className="row">Genres: {getGenre()}</div>

@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import search from "../../assets/search.svg";
+import Spinner from "../layout/spinner";
 
 const Search = () => {
   const [searchResults, setSearchResults] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const searchList = async (title) => {
     try {
+      setLoading(true);
       const response = await fetch(
         `https://api.jikan.moe/v3/search/anime?q=${title}&page=1`
       );
       const listJSON = await response.json();
       const list = await listJSON.results;
       setSearchResults(list);
+      setLoading(false);
     } catch (err) {
       console.log(err);
     }
@@ -43,11 +48,11 @@ const Search = () => {
   return (
     <div>
       <div className="container searchAnime">
-        <h1>Search</h1>
+        <p className="heading">Search</p>
       </div>
       <div className="container searchAnime">
-        <form>
-          <i className="material-icons">search</i>
+        <form className="watchList">
+          <img src={search} alt="search icon" />
           <input
             type="search"
             placeholder="Search for Anime"
@@ -66,7 +71,12 @@ const Search = () => {
         </div>
       ) : (
         <div className="container searchAnime">
-          {searchResults.map((show) => showInfo(show))}
+          {searchResults.slice(0, 10).map((show) => showInfo(show))}
+        </div>
+      )}
+      {loading === true && (
+        <div className="container searchAnime">
+          <Spinner />
         </div>
       )}
     </div>
