@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import ConfigureInfo from "../../configureInfo";
 import DisplayEventCard from "./displayEventCard";
 import moment from "moment";
+import "../../CSS/show.css";
+import "../../CSS/watchlist.css";
 
 const WatchList = () => {
   const [events, setEvents] = useState([]);

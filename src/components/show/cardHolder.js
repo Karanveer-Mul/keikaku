@@ -29,12 +29,14 @@ const CardHolder = (props) => {
       </div>
 
       {
-        <ShowSummary
-          show={isSummaryShown}
-          onHide={() => setSummaryShown(false)}
-          info={props.show}
-          key={props.show.mal_id}
-        />
+        <div className="watchList">
+          <ShowSummary
+            show={isSummaryShown}
+            onHide={() => setSummaryShown(false)}
+            info={props.show}
+            key={props.show.mal_id}
+          />
+        </div>
       }
     </>
   );

@@ -3,6 +3,7 @@ import { Button, Form, Col } from "react-bootstrap";
 import ConfigureInfo from "../../configureInfo";
 import moment from "moment";
 import Spinner from "../layout/spinner";
+import "../../CSS/show.css";
 
 const AnimeInfo = ({ match }) => {
   const [animeInfo, setAnimeInfo] = useState(null);

@@ -3,6 +3,7 @@ import CardHolder from "./cardHolder";
 import { getSeason } from "../../actions/getSeason";
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../layout/spinner";
+import "../../CSS/show.css";
 
 const ShowInfo = () => {
   const dispatch = useDispatch();

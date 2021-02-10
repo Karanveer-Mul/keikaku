@@ -107,6 +107,7 @@ const ShowSummary = (props) => {
       {...props}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
+      style={{ padding: "0 15px 0 0px" }}
       centered
     >
       <Modal.Header closeButton>
@@ -114,7 +115,7 @@ const ShowSummary = (props) => {
           <Row>
             <Modal.Title>{title}</Modal.Title>
           </Row>
-          <Row className="justify-content-center">{getGenre()}</Row>
+          <div className="watchList">{getGenre()}</div>
         </Container>
       </Modal.Header>
       <Modal.Body className="show-grid">
@@ -126,7 +127,10 @@ const ShowSummary = (props) => {
             <Col xs={6} md={7} lg={8}>
               <Row className="justify-content-center">{getStudios()}</Row>
               <Row className="justify-content-center">{source}</Row>
-              <Row className="justify-content-center">
+              <Row
+                className="justify-content-center"
+                style={{ textAlign: "center" }}
+              >
                 {moment(airing_start).format("MMM Do, YYYY [at] h:mma")}
               </Row>
               <Row>
