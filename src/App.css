@@ -13,38 +13,6 @@ html {
   box-sizing: border-box;
 }
 
-.searchAnime {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.searchResult {
-  width: 50%;
-  border: none;
-  border-bottom: 2px solid rgb(150, 150, 150);
-  background-color: #ececec;
-  padding: 10px 5px 1px 15px;
-}
-
-@media only screen and (max-width: 475px) {
-  .searchResult {
-    width: 100%;
-  }
-}
-
-input[type="search"] {
-  border: none;
-  border-bottom: 2px solid rgb(150, 150, 150);
-  background-color: #ececec;
-  padding: 10px 5px 1px 15px;
-}
-
-input[type="search"]:focus {
-  outline: none;
-}
-
 .banner {
   height: 30vh;
   background: #007abd;
@@ -200,23 +168,6 @@ input[type="search"]:focus {
 }
 
 .overlay-image:hover {
-  cursor: pointer;
-}
-
-.all-font {
-  font-size: 72%;
-}
-
-.removeContainer {
-  border: none;
-  background-color: #665656;
-  color: white;
-  max-height: 1rem;
-  justify-content: center;
-}
-
-.removeContainer:hover {
-  background-color: #ee3636;
   cursor: pointer;
 }
 

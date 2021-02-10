@@ -1,0 +1,57 @@
+.searchAnime {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchResult {
+  width: 400px;
+  border: none;
+  border-bottom: 2px solid rgb(150, 150, 150);
+  padding-bottom: 1px;
+  cursor: pointer;
+}
+
+.searchResult:hover {
+  background: rgba(0, 0, 0, 0.445);
+}
+
+.searchResultPara {
+  color: black;
+  margin: 0;
+  background: url("../assets/arrow.svg");
+  background-repeat: no-repeat;
+  background-position-x: calc(100% - 5px);
+  background-position-y: calc(50%);
+  padding-right: 25px;
+}
+
+.searchResultPara:hover {
+  color: white;
+  background: url("../assets/arrow_right.svg");
+  background-repeat: no-repeat;
+  background-position-x: calc(100% - 5px);
+  background-position-y: calc(50%);
+}
+
+@media only screen and (max-width: 475px) {
+  .searchResult {
+    width: 100%;
+  }
+}
+
+input[type="search"] {
+  border: none;
+  width: 250px;
+  border-bottom: 2px solid rgb(150, 150, 150);
+  background: url("../assets/search.svg");
+  background-repeat: no-repeat;
+  background-position-x: 0;
+  background-position-y: calc(50%);
+  padding: 0 20px 0 20px;
+}
+
+input[type="search"]:focus {
+  outline: none;
+}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import search from "../../assets/search.svg";
+import "../../CSS/search.css";
 import Spinner from "../layout/spinner";
 
 const Search = () => {
@@ -29,44 +29,34 @@ const Search = () => {
           to={{
             pathname: `/anime/${props.mal_id}`,
           }}
+          style={{ textDecoration: "none" }}
         >
-          <p>
-            {props.title}
-
-            <i
-              className="material-icons"
-              style={{ float: "right", paddingLeft: "10px" }}
-            >
-              arrow_forward
-            </i>
-          </p>
+          <p className="searchResultPara">{props.title} </p>
         </Link>
       </div>
     );
   };
 
   return (
-    <div>
-      <div className="container searchAnime">
-        <p className="heading">Search</p>
+    <div className="container searchAnime">
+      <p className="heading">Search</p>
+
+      <div className="searchDiv">
+        <input
+          type="search"
+          placeholder="Search for Anime"
+          onChange={(title) => searchList(title.target.value)}
+        />
       </div>
-      <div className="container searchAnime">
-        <form className="watchList">
-          <img src={search} alt="search icon" />
-          <input
-            type="search"
-            placeholder="Search for Anime"
-            onChange={(title) => searchList(title.target.value)}
-          />
-        </form>
-      </div>
-      <div className="container searchAnime">
-        <p style={{ fontSize: "10px", color: "rgb(125, 132, 136)" }}>
-          Re-type if the search results disappear
-        </p>
-      </div>
+      <p style={{ fontSize: "10px", color: "rgb(125, 132, 136)" }}>
+        Re-type if the search results disappear
+      </p>
+
       {searchResults == null ? (
-        <div className="container searchAnime" style={{ padding: "2rem" }}>
+        <div
+          className="container searchAnime"
+          style={{ padding: "2rem", textAlign: "center" }}
+        >
           <h4>Enter a valid title!</h4>
         </div>
       ) : (
