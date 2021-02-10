@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Form, Col } from "react-bootstrap";
 import ConfigureInfo from "../../configureInfo";
 import moment from "moment";
+import Spinner from "../layout/spinner";
 
 const AnimeInfo = ({ match }) => {
   const [animeInfo, setAnimeInfo] = useState(null);
@@ -20,7 +21,7 @@ const AnimeInfo = ({ match }) => {
       }
     };
     getInfo();
-  });
+  }, []);
 
   const SetEvent = (props) => {
     const { title, image_url, aired, url, broadcast } = props;
@@ -122,7 +123,7 @@ const AnimeInfo = ({ match }) => {
   return (
     <div>
       {animeInfo === null ? (
-        <div style={{ textAlign: "center" }}>Loading...</div>
+        <Spinner />
       ) : (
         <div className="container" style={{ position: "relative" }}>
           <div className="row">
